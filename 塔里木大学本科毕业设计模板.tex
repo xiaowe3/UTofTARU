@@ -1,0 +1,309 @@
+\documentclass[a4paper,12pt]{ctexart}
+
+% 页面设置：上下2.5cm，左右2.6cm，页眉1.8cm，页脚1.5cm
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.6cm,right=2.6cm,headheight=1.8cm,footskip=1.5cm]{geometry}
+
+% 基本宏包
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{amssymb}
+
+% 字体设置（ctexart已自动加载fontspec和中文字体）
+\setmainfont{Times New Roman}
+
+% 行距1.5倍
+\renewcommand{\baselinestretch}{1.5}
+
+% 页眉页脚
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\songti 塔里木大学毕业设计}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% 标题格式
+% 一级标题：黑体四号，段前段后0.5行
+\titleformat{\section}{\heiti\fontsize{14pt}{14pt}\selectfont}{\thesection}{0.5em}{}
+\titlespacing{\section}{0pt}{0.5\baselineskip}{0.5\baselineskip}
+% 二级标题：黑体小四号，段前段后不空行
+\titleformat{\subsection}{\heiti\fontsize{12pt}{12pt}\selectfont}{\thesubsection}{0.5em}{}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+% 三级标题：仿宋小四号
+\titleformat{\subsubsection}{\fangsong\fontsize{12pt}{12pt}\selectfont}{\thesubsubsection}{0.5em}{}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+
+% 图表标题格式：黑体小四号
+\captionsetup{font={small,bf},labelsep=space}
+
+% 目录格式
+\titlecontents{section}[0em]{}{\thecontentslabel\hspace{0.5em}}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{subsection}[2em]{}{\thecontentslabel\hspace{0.5em}}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{subsubsection}[4em]{}{\thecontentslabel\hspace{0.5em}}{}{\titlerule*[0.5pc]{.}\contentspage}
+
+% 超链接设置
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black}
+
+% ========== 文档信息 ==========
+\newcommand{\thesistitle}{毕业设计标题}
+\newcommand{\thesissubtitle}{} % 副标题（非必须项，若无请留空）
+\newcommand{\studentname}{姓名}
+\newcommand{\studentid}{学号}
+\newcommand{\college}{学院}
+\newcommand{\major}{专业}
+\newcommand{\classname}{班级}
+\newcommand{\advisor}{导师}
+\newcommand{\thesisdate}{2026年6月}
+\newcommand{\grade}{2022}
+
+\begin{document}
+
+% ========== 封面 ==========
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1cm}
+
+\begin{tabular}{@{}c@{\hspace{0.5cm}}c@{}}
+\includegraphics[height=3.4cm]{logo.png} &
+\raisebox{1.4cm}{\parbox[c]{10cm}{\centering\heiti\fontsize{26pt}{39pt}\selectfont \underline{\grade}级毕业生毕业设计}}
+\end{tabular}
+
+\vspace{3cm}
+
+{\heiti\fontsize{22pt}{22pt}\selectfont \thesistitle}
+
+\ifx\thesissubtitle\empty\else
+\vspace{0.5cm}
+{\heiti\fontsize{16pt}{16pt}\selectfont ------\thesissubtitle}
+\fi
+
+\vspace{4cm}
+
+\songti\fontsize{14pt}{14pt}\selectfont
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{r @{\hspace{1em}} l}
+姓\hspace{2em}名 & \underline{\makebox[6cm]{\studentname}} \\
+学\hspace{2em}号 & \underline{\makebox[6cm]{\studentid}} \\
+学\hspace{2em}院 & \underline{\makebox[6cm]{\college}} \\
+专\hspace{2em}业 & \underline{\makebox[6cm]{\major}} \\
+班\hspace{2em}级 & \underline{\makebox[6cm]{\classname}} \\
+导\hspace{2em}师 & \underline{\makebox[6cm]{\advisor}} \\
+日\hspace{2em}期 & \underline{\makebox[6cm]{\thesisdate}} \\
+\end{tabular}
+\end{center}
+\clearpage
+
+% ========== 原创性声明 ==========
+\thispagestyle{empty}
+\begin{center}
+{\heiti\fontsize{16pt}{16pt}\selectfont 毕业设计原创性声明}
+\end{center}
+\vspace{1cm}
+
+{\bfseries 本人郑重声明：}所呈交的毕业设计《\thesistitle》，是本人在导师的指导下进行的研究工作及取得的研究成果。除文中已经注明引用的内容外，本设计不包含其他个人或集体已经发表或撰写过的研究成果。对本文的研究做出贡献的个人和集体，均已在文中作了明确的说明并表示谢意。本人完全意识到本声明的法律后果，并承诺因本声明而产生的法律结果由本人承担。
+
+\vspace{2cm}
+\hfill 毕业论文作者签名：\underline{\makebox[3cm]{}} \hspace{1cm} 日期：\underline{\makebox[1cm]{}}年\underline{\makebox[1cm]{}}月\underline{\makebox[1cm]{}}日
+
+\vspace{3cm}
+
+\begin{center}
+{\heiti\fontsize{16pt}{16pt}\selectfont 学位论文版权使用授权书}
+\end{center}
+\vspace{1cm}
+
+本人完全了解学校有关保留、使用学位论文的规定，同意学校保留并向国家有关部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅。本人授权塔里木大学可以将本学位论文的全部或部分内容编入有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存和汇编本学位论文。
+
+\vspace{1cm}
+本学位论文属于：
+
+保\hspace{1em}密$\square$，在\underline{\makebox[2cm]{}}年解密后适用本授权书。
+
+不保密$\square$。
+
+\vspace{2cm}
+学位论文作者签名：\underline{\makebox[3cm]{}} \hfill 指导教师签名：\underline{\makebox[3cm]{}}
+
+日期：\underline{\makebox[1cm]{}}年\underline{\makebox[1cm]{}}月\underline{\makebox[1cm]{}}日 \hfill 日期：\underline{\makebox[1cm]{}}年\underline{\makebox[1cm]{}}月\underline{\makebox[1cm]{}}日
+
+\clearpage
+
+% ========== 中文摘要 ==========
+\thispagestyle{empty}
+\begin{center}
+{\heiti\fontsize{18pt}{18pt}\selectfont \thesistitle}
+\end{center}
+\vspace{0.5cm}
+\begin{center}
+\songti\fontsize{12pt}{12pt}\selectfont \studentname \hspace{2em} 指导教师：\advisor
+\end{center}
+\vspace{1cm}
+
+{\heiti\fontsize{12pt}{12pt}\selectfont 摘要：}\songti\fontsize{12pt}{12pt}\selectfont
+在此输入中文摘要内容，300字左右。
+
+\vspace{1cm}
+{\heiti\fontsize{12pt}{12pt}\selectfont 关键词：}\songti\fontsize{12pt}{12pt}\selectfont 关键词1；关键词2；关键词3；关键词4
+
+\clearpage
+
+% ========== 英文摘要 ==========
+\thispagestyle{empty}
+\begin{center}
+{\bfseries\fontsize{18pt}{18pt}\selectfont Title}
+\end{center}
+\vspace{0.5cm}
+\begin{center}
+\fontsize{14pt}{14pt}\selectfont Zhang San \hspace{2em} Tutor: Advisor Name
+\end{center}
+\vspace{1cm}
+
+{\bfseries\fontsize{14pt}{14pt}\selectfont Abstract:} \fontsize{14pt}{14pt}\selectfont
+Enter English abstract here, approximately 250 words.
+
+\vspace{1cm}
+{\bfseries\fontsize{14pt}{14pt}\selectfont Key words:} \fontsize{14pt}{14pt}\selectfont Keyword1; Keyword2; Keyword3; Keyword4
+
+\clearpage
+
+% ========== 目录 ==========
+\thispagestyle{empty}
+\begin{center}
+{\heiti\fontsize{18pt}{18pt}\selectfont 目\hspace{2em}录}
+\end{center}
+\vspace{1cm}
+\tableofcontents
+\clearpage
+
+% ========== 正文开始 ==========
+\setcounter{page}{1}
+
+\section{绪论}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsubsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+% 公式示例
+\begin{equation}
+E = mc^2 \label{eq:1-1}
+\end{equation}
+
+% 图片示例
+\begin{figure}[htbp]
+\centering
+% \includegraphics[width=0.6\textwidth]{图片文件名}
+\caption{图名}
+\label{fig:1-1}
+\end{figure}
+
+% 表格示例
+\begin{table}[htbp]
+\centering
+\caption{表名}
+\label{tab:1-1}
+\begin{tabular}{ccccc}
+\toprule
+XXXX & XXXX & XXXX & XXXX & XXXX \\
+\midrule
+XXXX & XXXX & XXXX & XXXX & XXXX \\
+XXXX & XXXX & XXXX & XXXX & XXXX \\
+XXXX & XXXX & XXXX & XXXX & XXXX \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\section{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsubsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\section{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsubsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\section{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\subsubsection{标题}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+% ========== 结论与展望 ==========
+\section*{结论与展望}
+\addcontentsline{toc}{section}{结论与展望}
+
+正文文字正文文字正文文字正文文字正文文字正文文字。
+
+% ========== 参考文献 ==========
+\clearpage
+\section*{参考文献：}
+\addcontentsline{toc}{section}{参考文献}
+\fontsize{10.5pt}{10.5pt}\selectfont
+
+\begin{enumerate}[label={[\arabic*]},leftmargin=*,nosep]
+\item 作者.书名[M].出版地:出版社,年份:页码.
+\item 作者.文章题目[J].期刊名称,年份,卷号(期数):起页-止页.
+\item 作者.论文题目[D].保存地:保存单位,年份.
+\end{enumerate}
+
+% ========== 附录 ==========
+\clearpage
+\section*{附录1}
+\addcontentsline{toc}{section}{附录1}
+
+% 附录内容
+
+% ========== 致谢 ==========
+\clearpage
+\begin{center}
+{\heiti\fontsize{18pt}{18pt}\selectfont 致\hspace{2em}谢}
+\end{center}
+\addcontentsline{toc}{section}{致谢}
+\vspace{1cm}
+
+正文文字正文文字正文文字正文文字正文文字正文文字正文文字正文文字正文文字正文文字正文文字正文文字。
+
+\end{document}

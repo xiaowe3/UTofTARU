@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python)",
+      "Bash(pandoc --version)",
+      "Bash(pandoc \"附件4：塔里木大学本科毕业设计模板.doc\" -t plain)",
+      "Bash(python -c \"import olefile; print\\('ok'\\)\")",
+      "Bash(pip install *)",
+      "Bash(pandoc \"附件4：塔里木大学本科毕业设计模板.docx\" -t markdown)",
+      "Bash(pandoc \"附件2：塔里木大学毕业论文（设计）写作规范要求.docx\" -t markdown)",
+      "Bash(xelatex -interaction=nonstopmode \"塔里木大学本科毕业设计模板.tex\")",
+      "Bash(python -c ' *)",
+      "Bash(pdftoppm -png -r 150 -f 1 -l 1 -singlefile \"塔里木大学本科毕业设计模板.pdf\" /tmp/tlu_cover)",
+      "Bash(pdftoppm -png -r 150 -f 1 -l 1 -singlefile \"塔里木大学本科毕业设计模板.pdf\" tlu_cover)",
+      "Read(//c/c/Users/GG/OneDrive/桌面/**)",
+      "Bash(pdftoppm -png -r 150 -f 2 -l 2 -singlefile \"塔里木大学本科毕业设计模板.pdf\" tlu_page2)",
+      "Bash(pdftoppm -png -r 150 -f 3 -l 3 -singlefile \"塔里木大学本科毕业设计模板.pdf\" tlu_page3)"
+    ]
+  }
+}
